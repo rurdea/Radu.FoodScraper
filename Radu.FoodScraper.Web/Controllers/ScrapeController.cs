@@ -36,7 +36,7 @@ namespace Radu.PureScraper.Web.Controllers
         public async Task<ActionResult<IEnumerable<DishDto>>> Post([FromBody]ScrapeInputModel input)
         {
             if (string.IsNullOrWhiteSpace(input?.MenuUrl)) return BadRequest("MenuUrl not provided.");
-
+            _logger.LogInformation("test");
             // get the scraper based on the url
             var scraperService = await _scraperIdentifier.GetScraperAsync(input.MenuUrl);
 
@@ -49,22 +49,10 @@ namespace Radu.PureScraper.Web.Controllers
 
             var models = dishes.Select(d => _mapperService.Map<Dish>(d));
             
-            // persist dishes in the database
-            Task.Run(() => LogSaveExceptionAsync(() => _dataService.PersistAsync(scraperService.GetType().Name, models)));
+            // persist dishes in the database async
+            Task.Run(() => _dataService.PersistAsync(scraperService.GetType().Name, models));
 
             return Ok(dishes);
-        }
-
-        private async Task LogSaveExceptionAsync(Func<Task> task)
-        {
-            try
-            {
-                await task();
-            }
-            catch (Exception exception)
-            {
-                _logger.LogWarning("Saving the scraper results into the database failed. " + exception.ToString());
-            }
         }
     }
 }

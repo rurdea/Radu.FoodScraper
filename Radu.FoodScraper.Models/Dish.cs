@@ -2,6 +2,7 @@
 
 namespace Radu.FoodScraper.Models
 {
+    // to do: create separate model for menu
     public class Dish : Model<Guid>
     {
         public string MenuTitle { get; set; }
@@ -10,6 +11,7 @@ namespace Radu.FoodScraper.Models
         public string DishName { get; set; }
         public string DishDescription { get; set; }
 
+        public Guid ScraperId { get; set; }
         public virtual Scraper Scraper { get; set; }
     }
 }

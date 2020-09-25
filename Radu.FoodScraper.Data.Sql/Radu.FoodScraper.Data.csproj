@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\_shared\Radu.FoodScraper.props" />
   <Import Project="..\_shared\Radu.FoodScraper.Lib.props" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Radu.FoodScraper.Models\Radu.FoodScraper.Models.csproj" />
