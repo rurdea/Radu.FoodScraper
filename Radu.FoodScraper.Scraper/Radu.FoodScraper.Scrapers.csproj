@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\_shared\Radu.FoodScraper.props" />
+  <Import Project="..\_shared\Radu.FoodScraper.Lib.props" />
+
+</Project>

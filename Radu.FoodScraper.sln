@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radu.FoodScraper.Web", "Radu.FoodScraper.Web\Radu.FoodScraper.Web.csproj", "{9DE16091-9F7F-45F1-AEF9-A3AAAE5E1B81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radu.FoodScraper.Models", "Radu.FoodScraper.Models\Radu.FoodScraper.Models.csproj", "{BBB1B539-F82D-4064-A7CA-F9347CFBD87B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radu.FoodScraper.Scrapers", "Radu.FoodScraper.Scraper\Radu.FoodScraper.Scrapers.csproj", "{2E6F5253-111E-4074-9ADC-FA7801BDA33F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_shared", "_shared", "{BEA7302C-FE51-4F56-981E-63DBEBFF4A48}"
+	ProjectSection(SolutionItems) = preProject
+		_shared\Radu.FoodScraper.App.props = _shared\Radu.FoodScraper.App.props
+		_shared\Radu.FoodScraper.Lib.props = _shared\Radu.FoodScraper.Lib.props
+		_shared\Radu.FoodScraper.props = _shared\Radu.FoodScraper.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radu.FoodScraper.Database", "Radu.FoodScraper.Database\Radu.FoodScraper.Database.csproj", "{814F40FA-C4DD-42F1-8363-329B01F9E45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radu.FoodScraper.Data", "Radu.FoodScraper.Data.Sql\Radu.FoodScraper.Data.csproj", "{69216AE4-DB39-47B4-9C3D-7F265910EB33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DE16091-9F7F-45F1-AEF9-A3AAAE5E1B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE16091-9F7F-45F1-AEF9-A3AAAE5E1B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE16091-9F7F-45F1-AEF9-A3AAAE5E1B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE16091-9F7F-45F1-AEF9-A3AAAE5E1B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB1B539-F82D-4064-A7CA-F9347CFBD87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB1B539-F82D-4064-A7CA-F9347CFBD87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB1B539-F82D-4064-A7CA-F9347CFBD87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB1B539-F82D-4064-A7CA-F9347CFBD87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6F5253-111E-4074-9ADC-FA7801BDA33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6F5253-111E-4074-9ADC-FA7801BDA33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6F5253-111E-4074-9ADC-FA7801BDA33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6F5253-111E-4074-9ADC-FA7801BDA33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814F40FA-C4DD-42F1-8363-329B01F9E45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814F40FA-C4DD-42F1-8363-329B01F9E45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814F40FA-C4DD-42F1-8363-329B01F9E45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814F40FA-C4DD-42F1-8363-329B01F9E45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69216AE4-DB39-47B4-9C3D-7F265910EB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69216AE4-DB39-47B4-9C3D-7F265910EB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69216AE4-DB39-47B4-9C3D-7F265910EB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69216AE4-DB39-47B4-9C3D-7F265910EB33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76FD04D5-0971-4E37-982D-9C149561A063}
+	EndGlobalSection
+EndGlobal
