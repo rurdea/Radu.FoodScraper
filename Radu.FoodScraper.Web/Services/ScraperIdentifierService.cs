@@ -1,4 +1,4 @@
-﻿using Radu.FoodScraper.Scraper;
+﻿using Radu.FoodScraper.Scrapers;
 using Radu.FoodScraper.Scrapers.Interfaces;
 using System.Threading.Tasks;
 

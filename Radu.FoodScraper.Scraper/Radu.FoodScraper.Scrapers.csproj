@@ -2,5 +2,8 @@
 
   <Import Project="..\_shared\Radu.FoodScraper.props" />
   <Import Project="..\_shared\Radu.FoodScraper.Lib.props" />
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+  </ItemGroup>
 
 </Project>
