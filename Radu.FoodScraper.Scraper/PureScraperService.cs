@@ -121,20 +121,24 @@ namespace Radu.FoodScraper.Scrapers
         private async Task ParseDishTitles(HtmlNodeCollection dishTitles, string menuLink, string menuName, string menuDescription, string menuTitleText, ConcurrentBag<DishDto> dishes)
         {
             if (dishTitles == null) return;
+            var loadDescriptionTasks = new List<Task>();
             foreach (var dishTitle in dishTitles)
             {
-                var dishName = dishTitle.Attributes["title"].Value;
-                dishes.Add(new DishDto()
+                var dish = new DishDto()
                 {
                     MenuTitle = menuName,
                     MenuDescription = menuDescription,
                     // to do: create a wrapper around dish dto with a task member that will allow parallel description extractions
-                    DishDescription = await ExtractDishDescriptionAsync(ConstructUrl(menuLink, dishTitle.Attributes["href"].Value)),
-                    DishName = dishName,
+                    //DishDescription = await ExtractDishDescriptionAsync(ConstructUrl(menuLink, dishTitle.Attributes["href"].Value)),
+                    DishName = dishTitle.Attributes["title"].Value,
                     MenuSectionTitle = menuTitleText
-                });
-                Logger.LogInformation($"New dish {dishName} created");
+                };
+
+                loadDescriptionTasks.Add(Task.Run(async () => dish.DishDescription = await ExtractDishDescriptionAsync(ConstructUrl(menuLink, dishTitle.Attributes["href"].Value))));
+                dishes.Add(dish);    
+                Logger.LogInformation($"New dish {dish.DishName} created");
             }
+            Task.WaitAll(loadDescriptionTasks.ToArray());
         }
 
         private async Task<string> ExtractDishDescriptionAsync(string dishLink)
