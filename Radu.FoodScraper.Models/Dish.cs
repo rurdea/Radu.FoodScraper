@@ -10,6 +10,7 @@ namespace Radu.FoodScraper.Models
         public string DishName { get; set; }
         public string DishDescription { get; set; }
 
+        public Guid ScraperId { get; set; }
         public virtual Scraper Scraper { get; set; }
     }
 }
