@@ -1,4 +1,5 @@
-﻿using Radu.FoodScraper.Scrapers;
+﻿using Microsoft.Extensions.Logging;
+using Radu.FoodScraper.Scrapers;
 using Radu.FoodScraper.Scrapers.Interfaces;
 using System.Threading.Tasks;
 
@@ -10,11 +11,18 @@ namespace Radu.FoodScraper.Web.Services
     /// </summary>
     public class ScraperIdentifierService
     {
+        public ScraperIdentifierService(ILogger<PureScraperService> pureScraperLogger)
+        {
+            PureScraperLogger = pureScraperLogger;
+        }
+
+        public ILogger<PureScraperService> PureScraperLogger { get; }
+
         public async Task<IScraperService> GetScraperAsync(string url)
         {
             // to do: read configured scrapers from database and match with the url
             // hardcode to pure scraper for this challenge
-            return await Task.FromResult(new PureScraperService());
+            return await Task.FromResult(new PureScraperService(PureScraperLogger));
         }
     }
 }

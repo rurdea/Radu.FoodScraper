@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using Microsoft.Extensions.Logging;
 using Radu.FoodScraper.Scrapers.Dto;
 using Radu.FoodScraper.Scrapers.Interfaces;
 using System;
@@ -12,6 +13,12 @@ namespace Radu.FoodScraper.Scrapers
 {
     public abstract class ScraperService : IScraperService
     {
+        protected ILogger Logger { get; }
+        public ScraperService(ILogger<ScraperService> logger)
+        {
+            Logger = logger;
+        }
+
         public async Task<IEnumerable<DishDto>> ScrapeAsync(string entryPointUrl)
         {
             var menuLinks = await ExtractMenuLinksAsync(entryPointUrl);
@@ -33,20 +40,28 @@ namespace Radu.FoodScraper.Scrapers
         {
             if (_pagesVisited.ContainsKey(url.ToLower()))
             {
+                Logger.LogDebug($"Getting content of {url} from cache.");
                 return _pagesVisited[url.ToLower()];
             }
             else
             {
-                using (var httpClient = new HttpClient())
+                Logger.LogDebug($"Getting content of {url}.");
+                var document = new HtmlDocument();
+                try
                 {
-                    var content = await httpClient.GetStringAsync(url);
-                    var document = new HtmlDocument();
-                    document.LoadHtml(content);
-
-                    _pagesVisited.TryAdd(url.ToLower(), document);
-
-                    return document;
+                    using (var httpClient = new HttpClient())
+                    {
+                        var content = await httpClient.GetStringAsync(url);
+                        document.LoadHtml(content);
+                        _pagesVisited.TryAdd(url.ToLower(), document);
+                    }
                 }
+                catch(Exception ex)
+                {
+                    Logger.LogError(ex, $"Network error while trying to retrieve {url}.");
+                }
+
+                return document;
             }
         }
 

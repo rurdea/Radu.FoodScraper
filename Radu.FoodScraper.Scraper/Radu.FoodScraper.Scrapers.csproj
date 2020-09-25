@@ -4,6 +4,7 @@
   <Import Project="..\_shared\Radu.FoodScraper.Lib.props" />
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.8" />
   </ItemGroup>
 
 </Project>
